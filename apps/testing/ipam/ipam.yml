@@ -22,7 +22,7 @@ spec:
       - name: php-ipam
         image: phpipam/phpipam-www
         ports:
-        - containerPort: 81
+        - containerPort: 80
 ---
 apiVersion: v1
 kind: Service
@@ -35,5 +35,5 @@ spec:
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 81
+      targetPort: 80
   type: LoadBalancer
