@@ -1,4 +1,4 @@
-
+## https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md for making an acct to login
 apiVersion: v1
 kind: Namespace
 metadata:
