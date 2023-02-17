@@ -23,11 +23,6 @@ spec:
         image: phpipam/phpipam-www
         ports:
         - containerPort: 80
-      - name: php-ipam-mariadb
-        image: mariadb:latest
-        env:
-          - name: MYSQL_ROOT_PASSWORD
-            value: "T3sTing123$"
 ---
 apiVersion: v1
 kind: Service
