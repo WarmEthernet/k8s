@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ipam-ns
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ipam-deployment
+  namespace: ipam-ns
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: phpipam
+  template:
+    metadata:
+      labels:
+        app: phpipam
+    spec:
+      containers:
+      - name: php-ipam
+        image: phpipam/phpipam-www
+        ports:
+        - containerPort: 81
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ipam-svc
+  namespace: ipam-ns
+spec:
+  selector:
+    app: phpipam
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 81
+  type: LoadBalancer
